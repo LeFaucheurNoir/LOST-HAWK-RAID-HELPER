@@ -1,20 +1,20 @@
 # ŁØST • HΛWK RAID HELPER
 
-<escape>⚔️</escape> *Bot Discord de gestion des raids et des activités de Diablo Immortal.*
+⚔️ *Bot Discord de gestion des raids et des activités de Diablo Immortal.*
 
-ŁØST • HΛWK est un bot Discord conçu pour faciliter l'organisation des clans, la gestion des raids, les inscriptions des joueurs, les Guerres des Ombres et les rappels automatiques.
+ŁØST • HΛWK est un bot Discord conçu pour faciliter l'organisation des clans, la gestion des raids, les événements, les inscriptions des joueurs, les Guerres des Ombres et les rappels automatiques.
 
-Il permet de centraliser les événements de votre serveur Discord et de simplifier la participation des membres grâce à des commandes, des menus interactifs et des messages actualisés automatiquement.
+Il permet de centraliser les activités de votre serveur Discord et de simplifier la participation des membres grâce à des commandes, des menus interactifs et des messages actualisés automatiquement.
 
 **Aucune installation n'est nécessaire pour utiliser le bot.** Il suffit de l'inviter sur votre serveur Discord.
 
 ---
 
-# <escape>🚀</escape> Ajouter le bot à son serveur
+# 🚀 Ajouter le bot à son serveur
 
 ## Invitation
 
-<escape>👉</escape> **[AJOUTER ŁØST • HΛWK RAID HELPER À MON SERVEUR DISCORD](https://discord.com/oauth2/authorize?client_id=1558792802782019694&permissions=8&integration_type=0&scope=bot)**
+👉 **[AJOUTER ŁØST • HΛWK RAID HELPER À MON SERVEUR DISCORD](https://discord.com/oauth2/authorize?client_id=1558792802782019694&permissions=8&integration_type=0&scope=bot)**
 
 Pour ajouter le bot :
 
@@ -36,11 +36,11 @@ Un administrateur doit ensuite utiliser `/config` pour définir les différents 
 
 ---
 
-# <escape>⚙️</escape> Configuration du serveur
+# ⚙️ Configuration du serveur
 
 La configuration est indépendante pour chaque serveur Discord.
 
-Cela signifie que chaque serveur peut utiliser ses propres salons, son propre rôle de notification et ses propres paramètres de rappels.
+Chaque serveur peut utiliser ses propres salons, son propre rôle de notification et ses propres paramètres de rappels.
 
 ## La commande `/config`
 
@@ -50,7 +50,7 @@ Cette commande permet de consulter et de modifier les paramètres du bot.
 |---|---|
 | `annonces` | Salon des rappels quotidiens de l'Assemblée et de la Chambre forte |
 | `gdo` | Salon des rappels de la Guerre des Ombres |
-| `logs` | Salon des inscriptions et désinscriptions aux raids |
+| `logs` | Salon des inscriptions et désinscriptions aux activités |
 | `role_ping` | Rôle mentionné dans les raids et les rappels |
 | `assemblee` | Activation ou désactivation des rappels quotidiens |
 | `guerre_ombres` | Activation ou désactivation des rappels de Guerre des Ombres |
@@ -99,62 +99,91 @@ Le bot affiche alors les paramètres actuellement enregistrés pour votre serveu
 
 ---
 
-# <escape>📅</escape> Gestion des raids et des événements
+# 📅 Gestion des raids et des événements
 
-ŁØST • HΛWK permet de créer des événements avec un système d'inscription directement intégré aux messages Discord.
+ŁØST • HΛWK dispose désormais de deux types d'activités distincts :
 
-Chaque événement possède son propre message interactif, qui affiche les informations du raid et les participants inscrits.
+- **Les raids :** événements organisés avec un adversaire, des paramètres de répétition et une gestion avancée.
+- **Les événements :** activités classiques créées sans adversaire ni système de répétition.
+
+Les deux systèmes disposent de leurs propres informations et affichages, tout en utilisant un système commun d'inscription des participants.
 
 ## Créer un raid
 
-Deux possibilités sont disponibles :
+La commande `/raid` permet d'accéder au menu de gestion des raids.
 
-- `/raid_create` : créer directement un événement avec les paramètres souhaités.
-- `/gestion_raids` : ouvrir le panneau interactif de gestion des événements.
+La commande `/gestion_raids` permet également d'accéder au panneau de gestion.
 
-### Paramètres d'un raid
+Les raids peuvent notamment comporter les paramètres suivants :
 
 | Paramètre | Description |
 |---|---|
-| `titre` | Nom de l'événement |
+| `titre` | Nom du raid |
 | `date` | Date et heure au format JJ/MM/AAAA HH:MM |
 | `adversaire` | Nom de l'adversaire |
 | `description` | Informations complémentaires |
 | `places_par_classe` | Nombre maximum de joueurs par classe |
-| `repetition` | Fréquence de répétition de l'événement |
-| `jours_avant` | Nombre de jours avant la date prévue pour publier le prochain événement |
+| `repetition` | Fréquence de répétition du raid |
+| `jours_avant` | Nombre de jours avant la date prévue pour publier le prochain raid |
 | `ping` | Mention à ajouter au message du raid |
 
 La limite de places par classe peut être comprise entre 0 et 100.
 
 Une valeur de `0` signifie qu'il n'y a aucune limite.
 
+## Créer un événement classique
+
+La commande `/event` permet de créer un événement indépendant des raids.
+
+Elle ouvre un formulaire permettant de renseigner les informations de l'activité.
+
+### Paramètres d'un événement
+
+| Paramètre | Description |
+|---|---|
+| `titre` | Nom de l'événement |
+| `date` | Date et heure au format JJ/MM/AAAA HH:MM, facultative |
+| `description` | Informations complémentaires |
+| `places_par_classe` | Nombre maximum de joueurs par classe |
+| `nombre_total_de_places` | Nombre maximum de participants toutes classes confondues |
+
+Une valeur de `0` signifie qu'il n'y a aucune limite pour le paramètre concerné.
+
+La date peut être laissée vide si elle n'est pas encore définie.
+
+**Les événements classiques ne disposent pas de système de répétition.** Chaque événement est créé individuellement.
+
 ### Exemple
 
-`/raid_create`
+`/event`
 
-Renseignez les paramètres demandés par Discord, puis validez.
+Renseignez les informations demandées dans le formulaire, puis validez.
 
-Le bot publie le message d'inscription dans le salon où la commande est utilisée.
+Le bot publie automatiquement le message d'inscription dans le salon où la commande a été utilisée.
 
-## Inscription des joueurs
+---
 
-Les membres du serveur peuvent participer directement depuis le message du raid.
+# 📝 Inscription des joueurs
 
-Le message contient notamment :
-- Le titre et l'adversaire.
+Les membres du serveur peuvent participer directement depuis le message de leur raid ou événement.
+
+Chaque message contient les informations de l'activité et la liste des participants inscrits.
+
+### Informations affichées
+
+- Le titre et la description.
 - La date et l'heure.
-- La description de l'événement.
 - Le nom du créateur.
 - Le nombre total d'inscrits.
 - La liste des joueurs répartis par classe.
 - Les éventuelles listes d'attente.
+- Les statuts de participation.
 
 ### Choisir sa classe
 
 Pour s'inscrire :
 
-1. Ouvrez le menu déroulant du raid.
+1. Ouvrez le menu déroulant de l'activité.
 2. Sélectionnez votre classe.
 3. Renseignez le nom de votre personnage.
 4. Validez l'inscription.
@@ -178,7 +207,7 @@ Le bot ajoute automatiquement le personnage à la liste de sa classe.
 
 ### Liste d'attente
 
-Lorsqu'une limite de places est définie pour une classe, les inscriptions supplémentaires sont automatiquement placées en liste d'attente.
+Lorsqu'une limite de places est définie pour une classe, les inscriptions supplémentaires peuvent être placées automatiquement en liste d'attente.
 
 Lorsqu'une place se libère, le premier joueur en attente est automatiquement promu parmi les inscrits.
 
@@ -188,55 +217,51 @@ Chaque membre dispose de plusieurs possibilités :
 
 - **S'inscrire :** ajouter un personnage dans une classe.
 - **Supprimer un personnage :** choisir précisément lequel retirer.
-- **Se désinscrire :** retirer toutes ses inscriptions à cet événement.
+- **Se désinscrire :** retirer ses inscriptions à cette activité.
 - **Pas sûr :** indiquer que sa participation est incertaine.
 - **Absents :** signaler son absence.
 
-Les modifications sont enregistrées et le message du raid est actualisé.
+Les modifications sont enregistrées et le message de l'activité est actualisé automatiquement.
 
 ---
 
-# <escape>🛠️</escape> Panneau de gestion des raids
+# 🛠️ Panneau de gestion des raids et événements
 
-La commande `/gestion_raids` permet aux administrateurs d'accéder à une interface interactive.
+La commande `/gestion_raids` permet aux administrateurs d'accéder à une interface interactive de gestion.
 
-Elle permet de gérer les événements sans devoir retenir leurs identifiants.
+L'objectif est de séparer clairement les deux catégories d'activités afin de ne pas mélanger les raids et les événements classiques.
 
-### Fonctionnalités disponibles
+### Organisation du panneau
+
+| Catégorie | Contenu |
+|---|---|
+| Raids | Liste et gestion des raids |
+| Événements | Liste et gestion des événements classiques |
+
+Chaque catégorie permet de retrouver les activités correspondantes et d'accéder à leurs options de gestion.
+
+### Fonctionnalités de gestion
 
 | Action | Description |
 |---|---|
-| Créer un raid | Ouvre le formulaire de création |
-| Sélectionner un raid | Accède aux informations d'un événement |
+| Créer | Ouvre le formulaire de création correspondant |
+| Sélectionner | Accède aux informations d'une activité |
 | Fermer / rouvrir | Bloque ou autorise les nouvelles inscriptions |
 | Participants par classe | Consulte les participants d'une classe |
-| Modifier | Modifie les informations d'un événement |
-| Supprimer | Supprime un événement après confirmation |
-| Répétition | Modifie la fréquence de l'événement |
+| Modifier | Modifie les informations d'une activité |
+| Supprimer | Supprime une activité après confirmation |
+| Actualiser | Recharge la liste des activités |
 | Exporter les personnages | Génère un lien d'export vers le site |
-| Actualiser | Recharge la liste des événements |
 
-Les modifications sont sauvegardées et les messages d'inscription sont actualisés lorsque cela est applicable.
+Les options de répétition sont réservées aux raids.
 
-## Modifier un raid
+### Fermer les inscriptions
 
-Le formulaire de modification permet de changer :
+Une activité peut être fermée pour empêcher les nouvelles inscriptions.
 
-- Le titre.
-- La date et l'heure.
-- L'adversaire.
-- La description.
-- Le nombre de places par classe.
+Elle peut être rouverte à tout moment depuis le panneau de gestion.
 
-## Fermer les inscriptions
-
-Un événement peut être fermé pour empêcher les nouvelles inscriptions.
-
-Il peut être rouvert à tout moment depuis le panneau de gestion.
-
-Le créateur de l'événement ou un membre disposant de la permission Gérer les événements peut effectuer cette opération, sous réserve des restrictions générales d'accès aux commandes du bot.
-
-## Exporter les participants
+### Exporter les participants
 
 Le panneau de gestion permet de générer un lien vers le site associé au bot.
 
@@ -247,71 +272,74 @@ Les personnages inscrits sont exportés avec :
 
 Le site peut ainsi récupérer les personnages à partir du lien généré.
 
-<escape>🌐</escape> **Site :** http://lostxhawk.ooguy.com/
+🌐 **Site :** http://lostxhawk.ooguy.com/
 
 ---
 
-# <escape>🔁</escape> Événements répétitifs
+# 🔁 Répétition des raids
 
-Les événements peuvent être configurés pour se reproduire automatiquement.
+Les raids peuvent être configurés pour se reproduire automatiquement.
 
 Quatre modes sont disponibles :
 
 | Mode | Fonctionnement |
 |---|---|
-| Aucune | Événement unique |
+| Aucune | Raid unique |
 | Chaque jour | Reproduction quotidienne |
 | Chaque semaine | Reproduction hebdomadaire |
 | Chaque mois | Reproduction mensuelle |
 
+**Cette fonctionnalité concerne uniquement les raids. Les événements classiques créés avec `/event` ne sont pas répétitifs.**
+
 ### Publication automatique
 
-Le paramètre `jours_avant` permet de définir combien de jours avant la prochaine occurrence le bot doit publier le nouvel événement.
+Le paramètre `jours_avant` permet de définir combien de jours avant la prochaine occurrence le bot doit publier le nouveau raid.
 
 Il est possible de choisir une valeur comprise entre 0 et 30 jours.
 
 Par exemple :
 
-- Événement hebdomadaire.
+- Raid hebdomadaire.
 - Publication 1 jour avant.
-- Le prochain événement est automatiquement créé la veille de sa date prévue.
+- Le prochain raid est automatiquement créé la veille de sa date prévue.
 
-Les nouveaux événements possèdent leurs propres inscriptions et leur propre liste de participants.
+Les nouveaux raids possèdent leurs propres inscriptions et leur propre liste de participants.
 
 ### Modifier une répétition
 
 Deux possibilités :
 
-- `/raid_repetition` : modifier la répétition d'un événement à partir de son identifiant.
+- `/raid_repetition` : modifier la répétition d'un raid à partir de son identifiant.
 - `/gestion_raids` : modifier la répétition depuis le panneau interactif.
 
 Les paramètres de répétition sont appliqués à l'ensemble de la série concernée.
 
 ---
 
-# <escape>📋</escape> Commandes disponibles
+# 📋 Commandes disponibles
 
 Voici les principales commandes du bot.
 
 | Commande | Utilité |
 |---|---|
 | `/config` | Consulter ou modifier la configuration du serveur |
-| `/raid_create` | Créer un événement |
-| `/raid_list` | Afficher les événements enregistrés |
+| `/raid` | Ouvrir le menu de gestion des raids |
+| `/event` | Créer un événement classique |
+| `/raid_create` | Créer un raid, si cette commande est disponible sur votre version |
+| `/raid_list` | Afficher les raids enregistrés |
 | `/raid_close` | Fermer ou rouvrir les inscriptions |
-| `/raid_delete` | Supprimer un événement |
+| `/raid_delete` | Supprimer un raid |
 | `/raid_export` | Afficher les inscrits répartis par classe |
-| `/raid_repetition` | Modifier la répétition d'un événement |
+| `/raid_repetition` | Modifier la répétition d'un raid |
 | `/gestion_raids` | Ouvrir le panneau interactif de gestion |
 | `/placements` | Publier les placements de Guerre des Ombres |
-| `/global` | Accéder à la gestion globale des serveurs |
 | `/sync` | Synchroniser les commandes Discord |
 
 *Certaines commandes sont réservées aux administrateurs du serveur ou aux super administrateurs du bot.*
 
 ---
 
-# <escape>⚔️</escape> Guerre des Ombres
+# ⚔️ Guerre des Ombres
 
 Le bot dispose d'un système de rappels automatiques pour les Guerres des Ombres.
 
@@ -342,7 +370,7 @@ Pour les désactiver :
 
 ---
 
-# <escape>🏰</escape> Assemblée et Chambre forte
+# 🏰 Assemblée et Chambre forte
 
 ŁØST • HΛWK propose également des rappels quotidiens pour les activités de l'Assemblée et de la Chambre forte.
 
@@ -371,7 +399,7 @@ Désactiver :
 
 ---
 
-# <escape>🧩</escape> Gestion des placements de Guerre des Ombres
+# 🧩 Gestion des placements de Guerre des Ombres
 
 La commande `/placements` permet de publier directement sur Discord les compositions d'équipes préparées depuis le site.
 
@@ -401,7 +429,7 @@ Si le code est incomplet ou invalide, le bot affiche un message d'erreur.
 
 ---
 
-# <escape>📨</escape> Système de logs
+# 📨 Système de logs
 
 Le bot peut enregistrer les principales opérations d'inscription dans un salon dédié.
 
@@ -415,26 +443,26 @@ Les événements enregistrés comprennent notamment :
 - Les désinscriptions.
 - Les suppressions de personnages.
 
-Les messages de logs indiquent l'utilisateur concerné, le personnage lorsque disponible, la classe et l'événement associé.
+Les messages de logs indiquent l'utilisateur concerné, le personnage lorsque disponible, la classe et l'activité associée.
 
 Cela permet aux responsables du serveur de suivre l'activité des inscriptions.
 
 ---
 
+# 💾 Sauvegarde et conservation des données
 
-# <escape>💾</escape> Sauvegarde et conservation des données
-
-Les paramètres et les événements sont enregistrés séparément pour chaque serveur.
+Les paramètres et les activités sont enregistrés séparément pour chaque serveur.
 
 Les informations sauvegardées comprennent notamment :
 
 - Les salons configurés.
 - Le rôle de notification.
 - L'état des rappels.
-- Les événements créés.
+- Les raids créés.
+- Les événements classiques.
 - Les inscriptions.
 - Les listes d'attente.
-- Les paramètres de répétition.
+- Les paramètres de répétition des raids.
 
 Les données sont conservées lors des redémarrages du bot.
 
@@ -442,7 +470,7 @@ Les messages d'inscription existants sont également réenregistrés au démarra
 
 ---
 
-# <escape>❓</escape> Questions fréquentes
+# ❓ Questions fréquentes
 
 ### Faut-il installer quelque chose ?
 
@@ -452,9 +480,15 @@ Non. Il suffit d'inviter le bot sur son serveur Discord. Toutes les fonctionnali
 
 Les administrateurs du serveur peuvent utiliser `/config` pour définir les paramètres.
 
-### Les membres peuvent-ils s'inscrire eux-mêmes aux raids ?
+### Quelle est la différence entre `/raid` et `/event` ?
 
-Oui. Ils utilisent les menus et boutons présents sur les messages des événements.
+`/raid` concerne les raids avec adversaire et possibilité de répétition.
+
+`/event` permet de créer des événements classiques sans adversaire ni répétition.
+
+### Les membres peuvent-ils s'inscrire eux-mêmes ?
+
+Oui. Ils utilisent les menus et boutons présents sur les messages des raids et événements.
 
 ### Peut-on inscrire plusieurs personnages ?
 
@@ -462,15 +496,15 @@ Oui. Un membre peut inscrire plusieurs personnages et les gérer individuellemen
 
 ### Que se passe-t-il lorsqu'une classe est complète ?
 
-Les inscriptions supplémentaires sont automatiquement placées en liste d'attente.
+Les inscriptions supplémentaires peuvent être placées automatiquement en liste d'attente.
 
 ### Les événements peuvent-ils être répétitifs ?
 
-Oui. Les répétitions quotidiennes, hebdomadaires et mensuelles sont disponibles.
+Les raids peuvent être répétitifs. Les événements classiques créés avec `/event` sont des activités individuelles.
 
 ### Chaque serveur possède-t-il sa propre configuration ?
 
-Oui. Les paramètres et les événements sont séparés par serveur.
+Oui. Les paramètres, les raids et les événements sont séparés par serveur.
 
 ### Le bot fonctionne-t-il après un redémarrage ?
 
@@ -482,11 +516,10 @@ En cas de problème, contactez l'équipe responsable de ŁØST • HΛWK.
 
 ---
 
-# <escape>⚔️</escape> ŁØST • HΛWK
+# ⚔️ ŁØST • HΛWK
 
 *Une gestion centralisée, des inscriptions simplifiées et une meilleure organisation pour vos activités Diablo Immortal.*
 
 **Site officiel :** http://lostxhawk.ooguy.com/
 
 **Invitation Discord :** [Ajouter ŁØST • HΛWK](https://discord.com/oauth2/authorize?client_id=1558792802782019694&permissions=8&integration_type=0&scope=bot)
-
