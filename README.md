@@ -131,6 +131,18 @@ La limite de places par classe peut être comprise entre 0 et 100.
 
 Une valeur de `0` signifie qu'il n'y a aucune limite.
 
+### Détection automatique du salon de publication
+
+Lors de la création d'un raid, ŁØST • HΛWK analyse automatiquement son titre afin de déterminer dans quel salon Discord il doit être publié.
+
+Selon les mots présents dans le nom du raid, le bot adapte automatiquement le salon de destination :
+
+- **Tour :** si le titre contient le mot « tour », le raid est automatiquement envoyé dans le salon prévu pour les tours.
+- **Ombre :** si le titre contient le mot « ombre », le raid est automatiquement envoyé dans le salon prévu pour les activités liées aux Ombres.
+- **Aucun mot reconnu :** si aucun de ces mots n'est détecté, le raid est publié dans le salon Discord où la commande de création a été utilisée.
+
+Cette détection permet de répartir automatiquement les raids dans les salons appropriés sans avoir à sélectionner manuellement leur destination à chaque création.
+
 ## Créer un événement classique
 
 La commande `/event` permet de créer un événement indépendant des raids.
