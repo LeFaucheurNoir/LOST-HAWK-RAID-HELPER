@@ -1,4 +1,4 @@
-# ŁØST • HΛWK RAID HELPER — v3.5.26
+# ŁØST • HΛWK RAID HELPER — v3.5.26.1
 
 ⚔️ *Bot Discord de gestion des raids et des activités de Diablo Immortal.*
 
