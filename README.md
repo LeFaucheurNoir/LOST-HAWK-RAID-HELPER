@@ -1,4 +1,4 @@
-# ŁØST • HΛWK RAID HELPER
+# ŁØST • HΛWK RAID HELPER — v3.5.26
 
 ⚔️ *Bot Discord de gestion des raids et des activités de Diablo Immortal.*
 
@@ -6,7 +6,7 @@
 
 Il permet de centraliser les activités de votre serveur Discord et de simplifier la participation des membres grâce à des commandes, des menus interactifs et des messages actualisés automatiquement.
 
-**Aucune installation n'est nécessaire pour utiliser le bot.** Il suffit de l'inviter sur votre serveur Discord.
+Aucune installation n'est nécessaire pour utiliser le bot. Il suffit de l'inviter sur votre serveur Discord.
 
 ---
 
@@ -14,7 +14,7 @@ Il permet de centraliser les activités de votre serveur Discord et de simplifie
 
 ## Invitation
 
-👉 **[AJOUTER ŁØST • HΛWK RAID HELPER À MON SERVEUR DISCORD](https://discord.com/oauth2/authorize?client_id=1558792802782019694&permissions=8&integration_type=0&scope=bot)**
+👉 [AJOUTER ŁØST • HΛWK RAID HELPER À MON SERVEUR DISCORD](https://discord.com/oauth2/authorize?client_id=1558792802782019694&permissions=8&scope=bot%20applications.commands)
 
 Pour ajouter le bot :
 
@@ -26,7 +26,7 @@ Pour ajouter le bot :
 
 Le bot apparaîtra dans la liste des membres de votre serveur.
 
-*Attention : le lien actuel demande la permission Administrateur. Cela permet au bot de disposer de toutes les permissions du serveur.*
+Attention : le lien actuel demande la permission Administrateur. Cela permet au bot de disposer de toutes les permissions du serveur.
 
 ## Après l'invitation
 
@@ -50,7 +50,9 @@ Cette commande permet de consulter et de modifier les paramètres du bot.
 |---|---|
 | `annonces` | Salon des rappels quotidiens de l'Assemblée et de la Chambre forte |
 | `gdo` | Salon des rappels de la Guerre des Ombres |
+| `event` | Salon de publication des événements classiques |
 | `logs` | Salon des inscriptions et désinscriptions aux activités |
+| `tower` | Salon des rappels de la Tour des Ombres |
 | `role_ping` | Rôle mentionné dans les raids et les rappels |
 | `assemblee` | Activation ou désactivation des rappels quotidiens |
 | `guerre_ombres` | Activation ou désactivation des rappels de Guerre des Ombres |
@@ -65,9 +67,17 @@ Définir le salon de Guerre des Ombres :
 
 `/config gdo:#guerre-des-ombres`
 
+Définir le salon des événements :
+
+`/config event:#evenements`
+
 Définir le salon des logs :
 
 `/config logs:#logs-bot`
+
+Définir le salon des rappels de la Tour des Ombres :
+
+`/config tower:#tour-des-ombres`
 
 Définir le rôle à mentionner :
 
@@ -91,7 +101,8 @@ Utilisez simplement :
 
 Le bot affiche alors les paramètres actuellement enregistrés pour votre serveur.
 
-**À retenir :**
+À retenir :
+
 - Seuls les administrateurs du serveur peuvent utiliser `/config`.
 - Vous pouvez modifier un seul paramètre sans toucher aux autres.
 - Les paramètres non renseignés conservent leur valeur actuelle.
@@ -101,10 +112,10 @@ Le bot affiche alors les paramètres actuellement enregistrés pour votre serveu
 
 # 📅 Gestion des raids et des événements
 
-ŁØST • HΛWK dispose désormais de deux types d'activités distincts :
+ŁØST • HΛWK dispose de deux types d'activités distincts :
 
-- **Les raids :** événements organisés avec un adversaire, des paramètres de répétition et une gestion avancée.
-- **Les événements :** activités classiques créées sans adversaire ni système de répétition.
+- Les raids : événements organisés avec un adversaire, des paramètres de répétition et une gestion avancée.
+- Les événements : activités classiques créées sans adversaire ni système de répétition.
 
 Les deux systèmes disposent de leurs propres informations et affichages, tout en utilisant un système commun d'inscription des participants.
 
@@ -137,9 +148,9 @@ Lors de la création d'un raid, ŁØST • HΛWK analyse automatiquement son tit
 
 Selon les mots présents dans le nom du raid, le bot adapte automatiquement le salon de destination :
 
-- **Tour :** si le titre contient le mot « tour », le raid est automatiquement envoyé dans le salon prévu pour les tours.
-- **Ombre :** si le titre contient le mot « ombre », le raid est automatiquement envoyé dans le salon prévu pour les activités liées aux Ombres.
-- **Aucun mot reconnu :** si aucun de ces mots n'est détecté, le raid est publié dans le salon Discord où la commande de création a été utilisée.
+- Tour : si le titre contient le mot « tour », le raid est automatiquement envoyé dans le salon prévu pour les tours.
+- Ombre : si le titre contient le mot « ombre », le raid est automatiquement envoyé dans le salon prévu pour les activités liées aux Ombres.
+- Aucun mot reconnu : si aucun de ces mots n'est détecté, le raid est publié dans le salon Discord où la commande de création a été utilisée.
 
 Cette détection permet de répartir automatiquement les raids dans les salons appropriés sans avoir à sélectionner manuellement leur destination à chaque création.
 
@@ -148,6 +159,8 @@ Cette détection permet de répartir automatiquement les raids dans les salons a
 La commande `/event` permet de créer un événement indépendant des raids.
 
 Elle ouvre un formulaire permettant de renseigner les informations de l'activité.
+
+Le salon de publication doit être défini au préalable avec le paramètre `event` de la commande `/config`.
 
 ### Paramètres d'un événement
 
@@ -163,7 +176,7 @@ Une valeur de `0` signifie qu'il n'y a aucune limite pour le paramètre concern�
 
 La date peut être laissée vide si elle n'est pas encore définie.
 
-**Les événements classiques ne disposent pas de système de répétition.** Chaque événement est créé individuellement.
+Les événements classiques ne disposent pas de système de répétition. Chaque événement est créé individuellement.
 
 ### Exemple
 
@@ -171,7 +184,7 @@ La date peut être laissée vide si elle n'est pas encore définie.
 
 Renseignez les informations demandées dans le formulaire, puis validez.
 
-Le bot publie automatiquement le message d'inscription dans le salon où la commande a été utilisée.
+Le bot publie automatiquement le message d'inscription dans le salon configuré avec `/config event`.
 
 ---
 
@@ -227,11 +240,11 @@ Lorsqu'une place se libère, le premier joueur en attente est automatiquement pr
 
 Chaque membre dispose de plusieurs possibilités :
 
-- **S'inscrire :** ajouter un personnage dans une classe.
-- **Supprimer un personnage :** choisir précisément lequel retirer.
-- **Se désinscrire :** retirer ses inscriptions à cette activité.
-- **Pas sûr :** indiquer que sa participation est incertaine.
-- **Absents :** signaler son absence.
+- S'inscrire : ajouter un personnage dans une classe.
+- Supprimer un personnage : choisir précisément lequel retirer.
+- Se désinscrire : retirer ses inscriptions à cette activité.
+- Pas sûr : indiquer que sa participation est incertaine.
+- Absents : signaler son absence.
 
 Les modifications sont enregistrées et le message de l'activité est actualisé automatiquement.
 
@@ -278,13 +291,14 @@ Elle peut être rouverte à tout moment depuis le panneau de gestion.
 Le panneau de gestion permet de générer un lien vers le site associé au bot.
 
 Les personnages inscrits sont exportés avec :
+
 - Leur pseudo.
 - Leur classe.
 - Leur emoji de classe.
 
 Le site peut ainsi récupérer les personnages à partir du lien généré.
 
-🌐 **Site :** http://lostxhawk.ooguy.com/
+🌐 Site : http://lostxhawk.ooguy.com/
 
 ---
 
@@ -301,7 +315,7 @@ Quatre modes sont disponibles :
 | Chaque semaine | Reproduction hebdomadaire |
 | Chaque mois | Reproduction mensuelle |
 
-**Cette fonctionnalité concerne uniquement les raids. Les événements classiques créés avec `/event` ne sont pas répétitifs.**
+Cette fonctionnalité concerne uniquement les raids. Les événements classiques créés avec `/event` ne sont pas répétitifs.
 
 ### Publication automatique
 
@@ -328,6 +342,31 @@ Les paramètres de répétition sont appliqués à l'ensemble de la série conce
 
 ---
 
+# 📢 Envoyer une annonce avec le bot
+
+La commande `/annonce` permet aux administrateurs de faire publier un message par le bot dans le salon de leur choix.
+
+Elle peut être utilisée pour publier des informations importantes, des annonces de clan ou des messages destinés aux membres du serveur.
+
+### Paramètres
+
+| Paramètre | Description |
+|---|---|
+| `salon` | Salon dans lequel le bot doit publier le message |
+| `message` | Contenu du message à envoyer |
+
+Le Markdown est autorisé dans le message.
+
+### Exemple d'utilisation
+
+`/annonce salon:#annonces message:Bienvenue à tous !`
+
+Le bot confirme l'envoi de manière éphémère, puis publie le message dans le salon sélectionné.
+
+**La commande est réservée aux administrateurs du serveur.**
+
+---
+
 # 📋 Commandes disponibles
 
 Voici les principales commandes du bot.
@@ -337,6 +376,7 @@ Voici les principales commandes du bot.
 | `/config` | Consulter ou modifier la configuration du serveur |
 | `/raid` | Ouvrir le menu de gestion des raids |
 | `/event` | Créer un événement classique |
+| `/annonce` | Publier un message dans le salon de son choix |
 | `/raid_create` | Créer un raid, si cette commande est disponible sur votre version |
 | `/raid_list` | Afficher les raids enregistrés |
 | `/raid_close` | Fermer ou rouvrir les inscriptions |
@@ -347,7 +387,7 @@ Voici les principales commandes du bot.
 | `/placements` | Publier les placements de Guerre des Ombres |
 | `/sync` | Synchroniser les commandes Discord |
 
-*Certaines commandes sont réservées aux administrateurs du serveur ou aux super administrateurs du bot.*
+Certaines commandes sont réservées aux administrateurs du serveur ou aux super administrateurs du bot.
 
 ---
 
@@ -457,7 +497,9 @@ Les événements enregistrés comprennent notamment :
 
 Les messages de logs indiquent l'utilisateur concerné, le personnage lorsque disponible, la classe et l'activité associée.
 
-Cela permet aux responsables du serveur de suivre l'activité des inscriptions.
+Les notifications liées aux événements sont adressées au créateur de l'événement et non au salon de logs.
+
+Cela permet aux responsables du serveur de suivre l'activité des inscriptions tout en informant directement le créateur des événements concernés.
 
 ---
 
@@ -524,14 +566,18 @@ Oui. Les données sont sauvegardées et les interfaces d'inscription persistante
 
 ### Comment obtenir de l'aide ?
 
-En cas de problème, contactez l'équipe responsable de ŁØST • HΛWK.
+Vous pouvez contacter l'équipe ŁØST • HΛWK depuis notre serveur Discord.
 
 ---
 
 # ⚔️ ŁØST • HΛWK
 
-*Une gestion centralisée, des inscriptions simplifiées et une meilleure organisation pour vos activités Diablo Immortal.*
+Une gestion centralisée, des inscriptions simplifiées et une meilleure organisation pour vos activités Diablo Immortal.
 
-**Site officiel :** http://lostxhawk.ooguy.com/
+Site officiel : http://lostxhawk.ooguy.com/
 
-**Invitation Discord :** [Ajouter ŁØST • HΛWK](https://discord.com/oauth2/authorize?client_id=1558792802782019694&permissions=8&integration_type=0&scope=bot)
+## 📩 Contact
+
+Pour toute question, demande d'information ou prise de contact avec notre équipe, rejoignez notre serveur Discord :
+
+**[Rejoindre notre Discord](https://discord.gg/88KChNjbc7)**
