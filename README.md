@@ -1,4 +1,4 @@
-# ŁØST • HΛWK RAID HELPER — v3.5.26.1
+# ŁØST • HΛWK RAID HELPER — v3.5.27.1
 
 ⚔️ *Bot Discord de gestion des raids et des activités de Diablo Immortal.*
 
@@ -367,6 +367,35 @@ Le bot confirme l'envoi de manière éphémère, puis publie le message dans le 
 
 ---
 
+# ✉️ Envoyer un message privé avec le bot
+
+La commande `/mp` permet aux administrateurs d'envoyer un message privé à un utilisateur choisi sur le serveur Discord.
+
+Le message est envoyé directement dans les messages privés du destinataire, sous la forme d'un embed portant l'identité de l'administrateur qui l'a envoyé.
+
+### Paramètres
+
+| Paramètre | Description |
+|---|---|
+| `utilisateur` | Utilisateur auquel envoyer le message |
+| `message` | Contenu du message privé |
+
+Le message doit être une simple chaîne de texte, sans Markdown ni mentions.
+
+### Exemple d'utilisation
+
+`/mp utilisateur:@Joueur message:Bonjour, peux-tu me contacter concernant le prochain raid ?`
+
+Le destinataire reçoit un message privé affichant le nom et l'avatar de l'administrateur expéditeur, ainsi que le contenu du message.
+
+Le bot confirme ensuite l'envoi de manière éphémère.
+
+Si le destinataire ne permet pas la réception de messages privés, le bot indique que l'envoi est impossible.
+
+**La commande est réservée aux administrateurs du serveur.**
+
+---
+
 # 📋 Commandes disponibles
 
 Voici les principales commandes du bot.
@@ -377,7 +406,8 @@ Voici les principales commandes du bot.
 | `/raid` | Ouvrir le menu de gestion des raids |
 | `/event` | Créer un événement classique |
 | `/annonce` | Publier un message dans le salon de son choix |
-| `/raid_create` | Créer un raid, si cette commande est disponible sur votre version |
+| `/mp` | Envoyer un message privé à un utilisateur du serveur |
+| `/raid_create` | Créer un raid |
 | `/raid_list` | Afficher les raids enregistrés |
 | `/raid_close` | Fermer ou rouvrir les inscriptions |
 | `/raid_delete` | Supprimer un raid |
