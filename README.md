@@ -1,4 +1,5 @@
 # ŁØST • HΛWK RAID HELPER — v3.5.27.1
+![Development](https://img.shields.io/badge/Development-85%25-brightgreen?style=for-the-badge)
 
 ⚔️ *Bot Discord de gestion des raids et des activités de Diablo Immortal.*
 
