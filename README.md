@@ -1,5 +1,5 @@
 # ŁØST • HΛWK RAID HELPER — v3.5.27.1
-![Development](https://img.shields.io/badge/Development-85%25-brightgreen?style=for-the-badge)
+![Development](https://img.shields.io/badge/Version-3.5.27.125-brightgreen?style=for-the-badge)
 
 ![Français](https://img.shields.io/badge/FR-100%25-brightgreen?style=for-the-badge)
 ![English](https://img.shields.io/badge/EN-0%25-orange?style=for-the-badge)
