@@ -3,6 +3,7 @@
 
 ![Français](https://img.shields.io/badge/FR-100%25-brightgreen?style=for-the-badge)
 ![English](https://img.shields.io/badge/EN-0%25-orange?style=for-the-badge)
+![Spanish](https://img.shields.io/badge/ES-0%25-orange?style=for-the-badge)
 
 ⚔️ *Bot Discord de gestion des raids et des activités de Diablo Immortal.*
 
