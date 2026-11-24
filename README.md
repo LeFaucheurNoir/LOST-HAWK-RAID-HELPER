@@ -1,6 +1,8 @@
 # ŁØST • HΛWK RAID HELPER — v3.5.27.1
 ![Development](https://img.shields.io/badge/Development-85%25-brightgreen?style=for-the-badge)
 
+![Français](https://img.shields.io/badge/FR-100%25-brightgreen?style=for-the-badge)
+
 ⚔️ *Bot Discord de gestion des raids et des activités de Diablo Immortal.*
 
 ŁØST • HΛWK est un bot Discord conçu pour faciliter l'organisation des clans, la gestion des raids, les événements, les inscriptions des joueurs, les Guerres des Ombres et les rappels automatiques.
